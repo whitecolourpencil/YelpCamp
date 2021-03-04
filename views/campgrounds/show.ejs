@@ -1,0 +1,23 @@
+<!-- shows a particular page(camp) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>show</title>
+</head>
+<body>
+<h1>hi</h1>
+    <h1><%=campground.title%></h1>
+    <h2><%=campground.location%></h2>
+    <footer>
+        <a href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+
+        <br>
+        <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+        <button>Delete</button></form>
+
+        <a href="/campgrounds">All Campgrounds</a>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+      <title>Camp</title>
+ </head>
+ <body>
+    <h1>Enchanted to meet you✨</h1> 
+
+    <a href="/campgrounds/new">Add Campground!</a>
+    <ul>
+      <% for(let i=0;i<list.length;i++ ) { %>
+       
+          <li ><a href="campgrounds/<%=list[i]._id%>"><%= list[i].title %></a></li>
+      <% }%>
+    </ul>
+ 
+ 
+ 
+ 
+   </body>
+ </html>
