@@ -1,23 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>new camp!</title>
-</head>
-<body>
-    <form action="/campgrounds" method="post">
-    <input type="text" 
-    id="title" 
-    name="campground[title]" 
-    placeholder="Title" >
+<% layout("layout/boilerplate") %>
 
-    <input type="text" 
-    id="location" 
-    name="campground[location]" 
-    placeholder="Location" >
-    <button>AddCamp</button>
-    <br/>
-    <a href="/campgrounds">All Campgrounds</a>
-    </form>
-</body>
-</html>
+<div class="row">
+    <h1 class="text-center">Add YOUR Campground!</h1>
+
+        <div class="col-6 offset-3">
+            <form action="/campgrounds" method="post" novalidate class="validated-form">
+            <div class="mb-3 mt-3">
+                <label for="title" class="form-lable">Title</label>
+                <input class="form-control" type="text" id="title"  name="campground[title]"  placeholder="Title" required >
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+             </div>
+
+            <div class="mb-3">
+                <label for="location" class="form-lable">Location</label>
+                <input class="form-control" type="text" id="location" name="campground[location]"  placeholder="Location" required >
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-lable">Image URL</label>
+                <input class="form-control" type="text" id="image" name="campground[image]"  placeholder="Image" required >
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+
+                <label for="basic-url">Price</label>
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">$</span>
+                </div>
+                <input type="text" class="form-control" id="price" aria-describedby="basic-addon3" name="campground[price]" placeholder="Price" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-lable">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="campground[description]"  placeholder="Description" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+
+                <div class="mb-3">
+                <button style="margin-bottom: 60%;" class="btn btn-success" >Add Campground</button>
+                </div>
+                
+            </form>
+        </div>
+
+
+
+</div>
+
+<script>
+    (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.validated-form')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+
+
+
+
+
+
+
+
+
+

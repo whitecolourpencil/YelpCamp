@@ -19,7 +19,10 @@ mongoose.connect("mongodb://localhost:27017/yelpCampDB",{useCreateIndex:true, us
 
     const camp = new Campground({
       location: `${cities[random1000].city}, ${cities[random1000].state}`,
-      title: `${sample(descriptors)} ${sample(places)}`
+      title: `${sample(descriptors)} ${sample(places)}`,
+      image:"https://source.unsplash.com/collection/483251",
+      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in arcu eget eros aliquam maximus ultrices at mi. Vivamus sit amet eros nec eros interdum malesuada.",
+      price:50
     })
 
     camp.save();

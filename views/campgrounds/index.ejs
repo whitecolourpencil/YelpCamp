@@ -1,22 +1,31 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-      <title>Camp</title>
- </head>
- <body>
+<% layout("layout/boilerplate") %>
     <h1>Enchanted to meet you✨</h1> 
 
     <a href="/campgrounds/new">Add Campground!</a>
-    <ul>
+    
       <% for(let i=0;i<list.length;i++ ) { %>
        
-          <li ><a href="campgrounds/<%=list[i]._id%>"><%= list[i].title %></a></li>
+        <div class="card mb-3">
+            <div class="row">
+               
+              <div class="col-md-4">
+                <img class="img-fluid"  src="<%=list[i].image%>" alt=""/>
+              </div>
+
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><%=list[i].title%></h5>
+                    <p class="card-text"><%=list[i].description%></p>
+                    <p class="card-text"><small><%=list[i].location%></small></p>
+                    <a class="btn btn-dark" href="/campgrounds/<%=list[i]._id%>"><%=list[i].title%></a>
+                  </div>
+                  
+                </div>
+
+            </div>
+        </div>
+
+
       <% }%>
-    </ul>
+    
  
- 
- 
- 
-   </body>
- </html>

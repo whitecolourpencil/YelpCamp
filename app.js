@@ -1,5 +1,3 @@
-//jshint esversion:6
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -7,6 +5,7 @@ const mongoose = require('mongoose');
 const Campground=require("./models/campground");
 const campground = require("./models/campground");
 const methodOverride= require("method-override");
+const ejsMate=require("ejs-mate");
 
 const app = express();
 
@@ -15,6 +14,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
+app.engine('ejs',ejsMate);
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
@@ -54,7 +54,6 @@ app.post("/campgrounds",function(req,res){
  res.redirect("/campgrounds/"+camp._id)
 });
 
-app.post("/campgrounds")
 
 
 app.get("/campgrounds/:id/edit",function(req,res){
